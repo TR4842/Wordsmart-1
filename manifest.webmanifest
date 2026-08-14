@@ -1,0 +1,10 @@
+{
+  "name": "WordSmart 1 — Offline Vocabulary",
+  "short_name": "WordSmart",
+  "description": "Learn 850 essential English words with Bangla meanings, offline.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f7f7f2",
+  "theme_color": "#1e5a45",
+  "icons": [{"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]
+}
