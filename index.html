@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#f7f7f2">
+  <meta name="description" content="Learn 850 essential English words with Bangla meanings — completely offline.">
+  <title>WordSmart 1 — Learn vocabulary offline</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="WordSmart home">
+        <span class="brand-mark">W</span><span>Word<span>Smart</span></span>
+      </a>
+      <nav class="main-nav">
+        <button class="nav-item active" data-view="home"><span class="nav-icon">⌂</span><span>Home</span></button>
+        <button class="nav-item" data-view="study"><span class="nav-icon">▱</span><span>Study</span></button>
+        <button class="nav-item" data-view="browse"><span class="nav-icon">⌕</span><span>Word library</span></button>
+        <button class="nav-item" data-view="quiz"><span class="nav-icon">✓</span><span>Quick quiz</span></button>
+        <button class="nav-item" data-view="saved"><span class="nav-icon">♡</span><span>Saved words</span></button>
+      </nav>
+      <div class="offline-note"><span class="status-dot"></span><div><strong>Ready offline</strong><small>Your progress stays on this device</small></div></div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="mobile-logo brand-mark" data-view="home" aria-label="Home">W</button>
+        <div class="search-wrap">
+          <span>⌕</span><input id="global-search" type="search" placeholder="Search 850 words…" autocomplete="off" aria-label="Search words">
+          <kbd>⌘ K</kbd>
+          <div id="search-results" class="search-results" hidden></div>
+        </div>
+        <div class="top-actions">
+          <button id="random-word" class="icon-button" title="Surprise me" aria-label="Show a random word">↝</button>
+          <div class="streak-pill"><span>🔥</span><strong id="header-streak">0</strong><span class="streak-label">day streak</span></div>
+        </div>
+      </header>
+
+      <section id="home-view" class="view active" aria-labelledby="home-title">
+        <div class="welcome-row">
+          <div><p class="eyebrow">YOUR DAILY PRACTICE</p><h1 id="home-title">Good <span id="day-part">morning</span>, learner.</h1><p>A few words a day can take you a long way.</p></div>
+          <p class="date" id="today"></p>
+        </div>
+
+        <div class="hero-grid">
+          <article class="daily-card">
+            <div class="daily-copy">
+              <span class="card-label">TODAY'S GOAL</span>
+              <h2><span id="daily-done">0</span> of <span id="daily-goal">10</span> words</h2>
+              <p id="goal-message">Start with one word. Momentum will follow.</p>
+              <button class="primary-button" data-view="study">Continue learning <span>→</span></button>
+            </div>
+            <div class="progress-orbit" id="goal-orbit" style="--progress:0">
+              <div><strong id="goal-percent">0%</strong><small>complete</small></div>
+            </div>
+          </article>
+
+          <article class="streak-card">
+            <div class="streak-top"><div><span class="card-label">STUDY STREAK</span><h2><span class="flame">✦</span> <span id="streak-count">0</span> days</h2></div><span class="personal-best">Best: <b id="best-streak">0</b></span></div>
+            <div class="week" id="week-row"></div>
+            <p>Study today to keep your rhythm going.</p>
+          </article>
+        </div>
+
+        <div class="section-heading"><div><span class="eyebrow">DISCOVER</span><h2>Word of the day</h2></div><button class="text-button" id="another-word">Show another ↻</button></div>
+        <article class="word-feature" id="word-feature"></article>
+
+        <div class="lower-grid">
+          <section>
+            <div class="section-heading compact"><div><span class="eyebrow">YOUR PROGRESS</span><h2>Learning at a glance</h2></div></div>
+            <div class="stat-grid">
+              <article class="stat-card"><span class="stat-icon lavender">✓</span><div><strong id="learned-stat">0</strong><span>Words learned</span></div></article>
+              <article class="stat-card"><span class="stat-icon peach">◫</span><div><strong id="review-stat">0</strong><span>To review</span></div></article>
+              <article class="stat-card"><span class="stat-icon mint">◎</span><div><strong id="accuracy-stat">—</strong><span>Quiz accuracy</span></div></article>
+            </div>
+          </section>
+          <section class="tip-card"><span class="tip-bulb">✦</span><div><span class="eyebrow">SMART TIP</span><h3>Say it out loud</h3><p>Speaking a new word creates another path to remember it. Tap the sound icon on any card.</p></div></section>
+        </div>
+      </section>
+
+      <section id="study-view" class="view" aria-labelledby="study-title">
+        <div class="page-heading"><div><p class="eyebrow">FLASHCARDS</p><h1 id="study-title">Study your words</h1><p>Reveal, rate, and move forward at your own pace.</p></div><div class="study-count"><b id="study-position">1</b> / 850</div></div>
+        <div class="study-layout">
+          <div class="flashcard-wrap">
+            <article id="flashcard" class="flashcard" tabindex="0" aria-label="Flashcard. Click to reveal meaning">
+              <div class="flash-face flash-front"><span class="card-label">DO YOU KNOW THIS WORD?</span><button class="sound-button study-sound" aria-label="Pronounce word">◖))</button><h2 id="flash-word">Abase</h2><p>Tap the card to reveal the meaning</p><span class="reveal-hint">Reveal answer <b>Space</b></span></div>
+              <div class="flash-face flash-back"><span class="card-label">MEANING</span><button class="sound-button study-sound" aria-label="Pronounce word">◖))</button><h2 id="flash-back-word"></h2><p class="flash-meaning" id="flash-meaning"></p><p class="flash-bangla" id="flash-bangla"></p><blockquote id="flash-example"></blockquote><span class="reveal-hint">Tap to see the word</span></div>
+            </article>
+            <div class="rating-area" id="rating-area" hidden>
+              <p>How well did you know it?</p>
+              <div><button class="rate-button again" data-rating="again"><span>↻</span>Again<small>review soon</small></button><button class="rate-button learning" data-rating="learning"><span>◔</span>Learning<small>keep practicing</small></button><button class="rate-button known" data-rating="known"><span>✓</span>Got it<small>mark learned</small></button></div>
+            </div>
+          </div>
+          <aside class="study-side"><h3>Study session</h3><div class="session-bar"><span id="session-bar-fill"></span></div><div class="session-stats"><div><b id="session-seen">0</b><span>Reviewed</span></div><div><b id="session-known">0</b><span>Learned</span></div></div><hr><label for="study-mode">Practice</label><select id="study-mode"><option value="all">All words</option><option value="unlearned">Not learned</option><option value="review">Needs review</option><option value="saved">Saved words</option></select><button id="shuffle-study" class="secondary-button">↝ Shuffle cards</button><p class="keyboard-tip"><b>Keyboard:</b> Space to reveal · 1, 2, 3 to rate</p></aside>
+        </div>
+      </section>
+
+      <section id="browse-view" class="view" aria-labelledby="browse-title">
+        <div class="page-heading"><div><p class="eyebrow">WORD LIBRARY</p><h1 id="browse-title">Explore all 850 words</h1><p>Search, filter, and save words for later.</p></div></div>
+        <div class="library-tools"><div class="library-search"><span>⌕</span><input id="library-search" type="search" placeholder="Search by word or meaning…"></div><select id="library-filter"><option value="all">All words</option><option value="known">Learned</option><option value="learning">Learning</option><option value="saved">Saved</option></select></div>
+        <div class="alphabet" id="alphabet"></div>
+        <div id="word-list" class="word-list"></div>
+        <button id="load-more" class="secondary-button load-more">Load more words</button>
+      </section>
+
+      <section id="quiz-view" class="view" aria-labelledby="quiz-title">
+        <div class="page-heading centered"><div><p class="eyebrow">QUICK QUIZ</p><h1 id="quiz-title">Test what you know</h1><p>Ten questions. Choose the closest meaning.</p></div></div>
+        <div id="quiz-shell" class="quiz-shell"><div id="quiz-progress" class="quiz-progress"></div><div class="quiz-meta"><span id="quiz-number">QUESTION 1 OF 10</span><span>Best score: <b id="best-score">—</b></span></div><h2 id="quiz-word"></h2><button id="quiz-sound" class="sound-button" aria-label="Pronounce quiz word">◖))</button><div id="quiz-options" class="quiz-options"></div><p id="quiz-feedback" class="quiz-feedback"></p><button id="next-question" class="primary-button" hidden>Next question →</button></div>
+      </section>
+
+      <section id="saved-view" class="view" aria-labelledby="saved-title">
+        <div class="page-heading"><div><p class="eyebrow">YOUR COLLECTION</p><h1 id="saved-title">Saved words</h1><p>Keep the words you want close at hand.</p></div></div>
+        <div id="saved-list" class="word-list"></div>
+      </section>
+    </main>
+  </div>
+
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <button class="nav-item active" data-view="home"><span>⌂</span><small>Home</small></button><button class="nav-item" data-view="study"><span>▱</span><small>Study</small></button><button class="nav-item" data-view="browse"><span>⌕</span><small>Library</small></button><button class="nav-item" data-view="quiz"><span>✓</span><small>Quiz</small></button>
+  </nav>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="words.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
